@@ -1,5 +1,6 @@
 module.exports = {
   content: ["./src/**/*.vue"],
+
   theme: {
     screens: {
       sm: "480px",
@@ -7,6 +8,7 @@ module.exports = {
       lg: "976px",
       xl: "1440px",
     },
+
     colors: {
       blue: "#1fb6ff",
       purple: "#7e5bef",
@@ -18,6 +20,13 @@ module.exports = {
       gray: "#8492a6",
       "gray-light": "#d3dce6",
     },
+
+    fontWeight: {
+      normal: 300,
+      semibold: 600,
+      extrabold: 800,
+    },
+
     extend: {},
   },
   plugins: [],

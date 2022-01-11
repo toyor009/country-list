@@ -1,9 +1,9 @@
 <template>
-  <nav class="flex justify-between shadow py-5 px-3 sm:px-10">
-    <h3>Where in the world?</h3>
+  <nav class="flex justify-between shadow py-5 px-3 sm:px-10 text-sm">
+    <h3 class="font-extrabold md:text-2xl lg:text-3xl">Where in the world?</h3>
 
-    <div>
-      <font-awesome-icon icon="moon" class="2x" />
+    <div class="cursor-pointer md:text-lg">
+      <font-awesome-icon icon="moon" />
       Dark Mode
     </div>
   </nav>
