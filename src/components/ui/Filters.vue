@@ -1,6 +1,6 @@
 <template>
   <div
-    class="sticky bg-white top-16 sm:top-20 left-0 right-0 py-10 sm:flex justify-between"
+    class="sticky bg-white top-16 sm:top-20 left-0 right-0 pt-10 pb-3 sm:py-10 sm:flex justify-between"
   >
     <div class="sm:w-2/5 sm:mb-0 mb-10 h-12 flex items-center shadow px-5">
       <font-awesome-icon icon="search" />

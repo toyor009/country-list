@@ -1,5 +1,12 @@
 <template>
-  <div>
+  <div
+    v-if="requestStatus == 'LOADING'"
+    class="h-homeLoader flex justify-center items-center"
+  >
+    <Loader size="3" />
+  </div>
+
+  <div v-else>
     <Filters
       @search-updated="updateSearchValue"
       @region-changed="updateRegionFilter"
@@ -9,14 +16,14 @@
       <div
         v-for="(country, index) in countries"
         :key="index"
-        class="rounded-md shadow m-10 sm:m-0"
+        class="rounded-lg overflow-hidden shadow-md m-10 sm:m-0"
       >
         <img
           :src="country.flags.svg"
           alt="Flag"
           class="object-cover w-full h-32 sm:h-48"
         />
-        <div class="m-4 pb-5 sm:pb-0">
+        <div class="m-4 pb-5 sm:pb-0 text-item">
           <h6 class="mb-3 font-extrabold sm:text-lg">
             {{ country.name.common }}
           </h6>
@@ -44,11 +51,13 @@ import { defineComponent, computed, ref } from "vue";
 import { useStore } from "@/store";
 
 import Filters from "@/components/ui/Filters.vue";
+import Loader from "@/components/ui/Loader.vue";
 
 export default defineComponent({
   name: "Countries",
   components: {
     Filters,
+    Loader,
   },
 
   setup() {

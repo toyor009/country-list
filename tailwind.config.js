@@ -18,8 +18,14 @@ module.exports = {
       fontFamily: {
         body: ["Nunito"],
       },
+      fontSize: {
+        item: "14px",
+      },
       gap: {
         lgX: "3%",
+      },
+      spacing: {
+        homeLoader: "calc(80vh - 76px)",
       },
     },
   },
