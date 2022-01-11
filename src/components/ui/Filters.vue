@@ -1,5 +1,7 @@
 <template>
-  <div class="sm:flex justify-between">
+  <div
+    class="sticky bg-white top-16 sm:top-20 left-0 right-0 py-10 sm:flex justify-between"
+  >
     <div class="sm:w-2/5 sm:mb-0 mb-10 h-12 flex items-center shadow px-5">
       <font-awesome-icon icon="search" />
       <input
@@ -7,7 +9,6 @@
         class="w-full ml-3 outline-none"
         placeholder="Search for a country.."
         v-model="search"
-        @update:model-value="$emit('search-updated', search)"
       />
     </div>
 
@@ -22,14 +23,14 @@
 
       <ul
         v-if="showRegions"
-        class="w-full absolute shadow top-12 p-3"
+        class="w-full bg-white absolute shadow top-12 p-3"
         ref="regionOptions"
         @blur="closeRegionOptions"
       >
         <li
           v-for="(region, index) in regions"
           :key="index"
-          class="cursor-pointer hover:bg-gray px-2"
+          class="cursor-pointer hover:bg-slate-500 px-2"
           @click="selectRegion(region)"
         >
           {{ region }}
@@ -48,8 +49,8 @@ export default defineComponent({
   emits: ["search-updated", "region-changed"],
 
   setup(props, { emit }) {
-    const search = "";
-    const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
+    const search = ref("");
+    const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania", "All"];
     const selectedRegion = ref("Filter by Region");
     const showRegions = ref(false);
     const regionOptions = ref();
@@ -58,10 +59,15 @@ export default defineComponent({
       selectedRegion.value = region;
       emit("region-changed", region);
       closeRegionOptions();
+      clearSearchValue();
     };
 
     const closeRegionOptions = () => {
       showRegions.value = false;
+    };
+
+    const clearSearchValue = () => {
+      search.value = "";
     };
 
     return {
@@ -73,6 +79,12 @@ export default defineComponent({
       selectRegion,
       closeRegionOptions,
     };
+  },
+
+  watch: {
+    search: function (searchValue) {
+      this.$emit("search-updated", searchValue);
+    },
   },
 });
 </script>

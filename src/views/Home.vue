@@ -1,24 +1,24 @@
 <template>
   <div>
-    <Filters @search-updated="update" @region-changed="update" />
+    <component :is="components[activeComponent]" />
   </div>
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, defineAsyncComponent, ref } from "vue";
 
-import Filters from "@/components/ui/Filters.vue";
+const Countries = defineAsyncComponent(() =>
+  import("@/components/ui/Countries.vue")
+);
 
 export default defineComponent({
   name: "Home",
-  components: {
-    Filters,
-  },
 
-  methods: {
-    update(search) {
-      console.log(" >>>> search updated", search);
-    },
+  setup() {
+    const components = [Countries];
+    const activeComponent = ref(0);
+
+    return { components, activeComponent };
   },
 });
 </script>

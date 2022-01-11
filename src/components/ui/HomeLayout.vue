@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="font-body">
     <NavBar />
 
-    <main class="p-3 sm:p-10">
+    <main class="px-3 sm:px-10">
       <slot />
     </main>
   </div>
