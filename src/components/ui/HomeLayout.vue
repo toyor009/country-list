@@ -2,7 +2,7 @@
   <div>
     <NavBar />
 
-    <main>
+    <main class="p-3 sm:p-10">
       <slot />
     </main>
   </div>
@@ -10,7 +10,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import NavBar from "/src/components/ui/NavBar.vue";
+import NavBar from "@/components/ui/NavBar.vue";
 
 export default defineComponent({
   name: "HomeLayout",

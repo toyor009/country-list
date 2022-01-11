@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import HomeLayout from "/src/components/ui/HomeLayout.vue";
+import HomeLayout from "@/components/ui/HomeLayout.vue";
 
 const routes = [
   {
@@ -11,7 +11,7 @@ const routes = [
   {
     path: "/home",
     name: "Home",
-    component: () => import("/src/components/ui/Countries.vue"),
+    component: () => import("@/views/Home.vue"),
     meta: {
       layout: HomeLayout,
     },

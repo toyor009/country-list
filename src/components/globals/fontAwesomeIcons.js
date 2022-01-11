@@ -3,6 +3,8 @@ import {
   faSpinner,
   faCircleNotch,
   faMoon,
+  faSearch,
+  faCaretDown,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faSpinner, faCircleNotch, faMoon);
+library.add(faSpinner, faCircleNotch, faMoon, faSearch, faCaretDown);
